@@ -1,10 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func main() {
 
-	const max = 5
+	if len(os.Args) != 2 {
+		fmt.Println("enter a whole number")
+	}
+
+	max, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Printf("%q is not a number.\n", max)
+	}
 
 	fmt.Printf("%5s", "X")
 	for i := 0; i <= max; i++ {
